@@ -24,4 +24,5 @@ This repository reflects a disciplined approach to learning fundamentals before 
 ## How to Run
 ```
 python program.py
+python3 program.py
 ```
