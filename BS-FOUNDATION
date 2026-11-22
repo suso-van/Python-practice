@@ -1,0 +1,426 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMl6hNz/rzs64iqULcAeIrF",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/suso-van/Python-practice/blob/main/BS-FOUNDATION\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "20 OPPE questions for OPPE 1"
+      ],
+      "metadata": {
+        "id": "mJj1Dhi1ac9A"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Problem 1 - Student Marks Filter\n"
+      ],
+      "metadata": {
+        "id": "qoFcPftAanyX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def filter_student_marks(marks_dict, threshold):\n",
+        "    \"\"\"\n",
+        "    Filters a dictionary of students and their marks, returning only those\n",
+        "    who scored greater than or equal to the specified threshold.\n",
+        "    \"\"\"\n",
+        "    return {student: mark for student, mark in marks_dict.items() if mark >= threshold}\n",
+        "\n",
+        "# Sample Student Data\n",
+        "student_marks = {\n",
+        "    \"Alice\": 85,\n",
+        "    \"Bob\": 58,\n",
+        "    \"Charlie\": 92,\n",
+        "    \"David\": 45,\n",
+        "    \"Eva\": 73\n",
+        "}\n",
+        "\n",
+        "# Filter students with marks greater than or equal to 60\n",
+        "passing_students = filter_student_marks(student_marks, 60)\n",
+        "print(\"Students who passed (scored >= 60):\")\n",
+        "for student, mark in passing_students.items():\n",
+        "    print(f\"{student}: {mark}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0Sz4GM0xaveQ",
+        "outputId": "ced6e4bb-0e21-41cc-fcca-0b6c337cca79"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Students who passed (scored >= 60):\n",
+            "Alice: 85\n",
+            "Charlie: 92\n",
+            "Eva: 73\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7a5569c1"
+      },
+      "source": [
+        "### Problem 1 Implementation\n",
+        "\n",
+        "Below is the implementation of the `filter_student_marks` function, followed by a demonstration with sample data."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "008a1a28",
+        "outputId": "82f69a05-1bd8-410a-877e-78581c38c5a9"
+      },
+      "source": [
+        "def filter_student_marks(marks_dict, threshold):\n",
+        "    filtered_students = {student: mark for student, mark in marks_dict.items() if mark >= threshold}\n",
+        "    return filtered_students\n",
+        "\n",
+        "# Sample Data\n",
+        "student_data = {\n",
+        "    \"Alice\": 85,\n",
+        "    \"Bob\": 58,\n",
+        "    \"Charlie\": 92,\n",
+        "    \"David\": 45,\n",
+        "    \"Eva\": 73\n",
+        "}\n",
+        "\n",
+        "# Filter students with marks >= 60\n",
+        "passing_students = filter_student_marks(student_data, 60)\n",
+        "print(\"Students who scored 60 or above:\")\n",
+        "print(passing_students)"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Students who scored 60 or above:\n",
+            "{'Alice': 85, 'Charlie': 92, 'Eva': 73}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Problem 2- The patterns(Pattern V,X,N,W,Z\n"
+      ],
+      "metadata": {
+        "id": "Gg96GETwb45S"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def print_pattern_v(height=5):\n",
+        "    print(\"--- Pattern V ---\")\n",
+        "    for i in range(height):\n",
+        "        for j in range(2 * height):\n",
+        "            if j == i or j == (2 * height - 2 - i):\n",
+        "                print(\"*\", end=\"\")\n",
+        "            else:\n",
+        "                print(\" \", end=\"\")\n",
+        "        print()\n",
+        "\n",
+        "def print_pattern_x(height=5):\n",
+        "    print(\"\\n--- Pattern X ---\")\n",
+        "    if height % 2 == 0:\n",
+        "        height += 1\n",
+        "    for i in range(height):\n",
+        "        for j in range(height):\n",
+        "            if j == i or j == (height - 1 - i):\n",
+        "                print(\"*\", end=\"\")\n",
+        "            else:\n",
+        "                print(\" \", end=\"\")\n",
+        "        print()\n",
+        "\n",
+        "def print_pattern_n(height=6):\n",
+        "    print(\"\\n--- Pattern N ---\")\n",
+        "    for i in range(height):\n",
+        "        for j in range(height):\n",
+        "            if j == 0 or j == height - 1 or i == j:\n",
+        "                print(\"*\", end=\"\")\n",
+        "            else:\n",
+        "                print(\" \", end=\"\")\n",
+        "        print()\n",
+        "\n",
+        "def print_pattern_w(height=5):\n",
+        "    print(\"\\n--- Pattern W ---\")\n",
+        "    for i in range(height):\n",
+        "        for j in range(4 * height):\n",
+        "            # Outer left diagonal, inner diagonals (making the peak in the middle), outer right diagonal\n",
+        "            if j == i or j == (2 * height - 2 - i) or j == (2 * height + i) or j == (4 * height - 2 - i):\n",
+        "                print(\"*\", end=\"\")\n",
+        "            else:\n",
+        "                print(\" \", end=\"\")\n",
+        "        print()\n",
+        "\n",
+        "def print_pattern_z(height=5):\n",
+        "    print(\"\\n--- Pattern Z ---\")\n",
+        "    for i in range(height):\n",
+        "        for j in range(height):\n",
+        "            if i == 0 or i == height - 1 or j == (height - 1 - i):\n",
+        "                print(\"*\", end=\"\")\n",
+        "            else:\n",
+        "                print(\" \", end=\"\")\n",
+        "        print()\n",
+        "\n",
+        "# Run demonstrations\n",
+        "print_pattern_v()\n",
+        "print_pattern_x()\n",
+        "print_pattern_n()\n",
+        "print_pattern_w()\n",
+        "print_pattern_z()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FpOxtMHTcIpq",
+        "outputId": "d6536628-ccde-4e5c-faac-c56cddfe6b32"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- Pattern V ---\n",
+            "*       * \n",
+            " *     *  \n",
+            "  *   *   \n",
+            "   * *    \n",
+            "    *     \n",
+            "\n",
+            "--- Pattern X ---\n",
+            "*   *\n",
+            " * * \n",
+            "  *  \n",
+            " * * \n",
+            "*   *\n",
+            "\n",
+            "--- Pattern N ---\n",
+            "*    *\n",
+            "**   *\n",
+            "* *  *\n",
+            "*  * *\n",
+            "*   **\n",
+            "*    *\n",
+            "\n",
+            "--- Pattern W ---\n",
+            "*       * *       * \n",
+            " *     *   *     *  \n",
+            "  *   *     *   *   \n",
+            "   * *       * *    \n",
+            "    *         *     \n",
+            "\n",
+            "--- Pattern Z ---\n",
+            "*****\n",
+            "   * \n",
+            "  *  \n",
+            " *   \n",
+            "*****\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Problem 3 -  Triangle ,diamond and hexa gon"
+      ],
+      "metadata": {
+        "id": "3Wa7aI7pczLY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def print_triangle(height=5):\n",
+        "    print(\"--- Triangle Pattern ---\")\n",
+        "    for i in range(height):\n",
+        "        # Print leading spaces\n",
+        "        print(\" \" * (height - i - 1), end=\"\")\n",
+        "        # Print stars\n",
+        "        print(\"*\" * (2 * i + 1))\n",
+        "    print()\n",
+        "\n",
+        "def print_diamond(height=5):\n",
+        "    print(\"--- Diamond Pattern ---\")\n",
+        "    # Upper half\n",
+        "    for i in range(height):\n",
+        "        print(\" \" * (height - i - 1), end=\"\")\n",
+        "        print(\"*\" * (2 * i + 1))\n",
+        "    # Lower half\n",
+        "    for i in range(height - 2, -1, -1):\n",
+        "        print(\" \" * (height - i - 1), end=\"\")\n",
+        "        print(\"*\" * (2 * i + 1))\n",
+        "    print()\n",
+        "\n",
+        "def print_hexagon(side=4):\n",
+        "    print(\"--- Hexagon Pattern ---\")\n",
+        "    # Top half (including middle)\n",
+        "    for i in range(side):\n",
+        "        print(\" \" * (side - i - 1), end=\"\")\n",
+        "        print(\"*\" * (side + 2 * i))\n",
+        "    # Bottom half\n",
+        "    for i in range(side - 2, -1, -1):\n",
+        "        print(\" \" * (side - i - 1), end=\"\")\n",
+        "        print(\"*\" * (side + 2 * i))\n",
+        "    print()\n",
+        "\n",
+        "# Run demonstrations\n",
+        "print_triangle(5)\n",
+        "print_diamond(5)\n",
+        "print_hexagon(4)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Vm3_bXXici_P",
+        "outputId": "be4e9b82-626c-4b73-c292-56e51a1b33d2"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- Triangle Pattern ---\n",
+            "    *\n",
+            "   ***\n",
+            "  *****\n",
+            " *******\n",
+            "*********\n",
+            "\n",
+            "--- Diamond Pattern ---\n",
+            "    *\n",
+            "   ***\n",
+            "  *****\n",
+            " *******\n",
+            "*********\n",
+            " *******\n",
+            "  *****\n",
+            "   ***\n",
+            "    *\n",
+            "\n",
+            "--- Hexagon Pattern ---\n",
+            "   ****\n",
+            "  ******\n",
+            " ********\n",
+            "**********\n",
+            " ********\n",
+            "  ******\n",
+            "   ****\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Problem - Count Vowels in Words"
+      ],
+      "metadata": {
+        "id": "7bZ1KZK-dwOb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def count_vowels(text):\n",
+        "    \"\"\"\n",
+        "    Counts the number of vowels (a, e, i, o, u) in a given string or list of words.\n",
+        "    Returns the total count and a dictionary containing the count of each vowel.\n",
+        "    \"\"\"\n",
+        "    vowels = \"aeiouAEIOU\"\n",
+        "    vowel_counts = {v: 0 for v in \"aeiou\"}\n",
+        "    total_count = 0\n",
+        "\n",
+        "    for char in text:\n",
+        "        if char in vowels:\n",
+        "            vowel_counts[char.lower()] += 1\n",
+        "            total_count += 1\n",
+        "\n",
+        "    return total_count, vowel_counts\n",
+        "\n",
+        "# Sample text\n",
+        "sample_words = \"Google Colab Notebook\"\n",
+        "total, individual_counts = count_vowels(sample_words)\n",
+        "\n",
+        "print(f\"Text: \\\"{sample_words}\\\"\")\n",
+        "print(f\"Total Vowels: {total}\")\n",
+        "print(\"Vowel breakdown:\")\n",
+        "for vowel, count in individual_counts.items():\n",
+        "    print(f\"  {vowel}: {count}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YRKIlyvYd2Np",
+        "outputId": "ea94cb0e-ae8f-445b-baee-708e1d3a1b83"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Text: \"Google Colab Notebook\"\n",
+            "Total Vowels: 9\n",
+            "Vowel breakdown:\n",
+            "  a: 1\n",
+            "  e: 2\n",
+            "  i: 0\n",
+            "  o: 6\n",
+            "  u: 0\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
