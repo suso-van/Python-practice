@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMl6hNz/rzs64iqULcAeIrF",
+      "authorship_tag": "ABX9TyP1f34BO0hxnDKIceaOfoVS",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -417,6 +417,49 @@
             "  e: 2\n",
             "  i: 0\n",
             "  o: 6\n",
+            "  u: 0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Problem 4 - Count vowels in words"
+      ],
+      "metadata": {
+        "id": "SzE_5R38ecTL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cbObkJ_WecBk",
+        "outputId": "379bb4a0-3012-4c46-c233-b0a06ca250c3"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Vowel count per word:\n",
+            "  'apple': 2 vowel(s)\n",
+            "  'banana': 3 vowel(s)\n",
+            "  'cherry': 1 vowel(s)\n",
+            "  'date': 2 vowel(s)\n",
+            "  'elderberry': 3 vowel(s)\n",
+            "\n",
+            "Overall Total Vowels: 11\n",
+            "Overall Vowel Breakdown:\n",
+            "  a: 5\n",
+            "  e: 6\n",
+            "  i: 0\n",
+            "  o: 0\n",
             "  u: 0\n"
           ]
         }
