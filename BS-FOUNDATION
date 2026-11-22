@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyP1f34BO0hxnDKIceaOfoVS",
+      "authorship_tag": "ABX9TyPd7BncZ5zlCirGqTrQI1Ze",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -76,7 +76,7 @@
         "id": "0Sz4GM0xaveQ",
         "outputId": "ced6e4bb-0e21-41cc-fcca-0b6c337cca79"
       },
-      "execution_count": 6,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -129,7 +129,7 @@
         "print(\"Students who scored 60 or above:\")\n",
         "print(passing_students)"
       ],
-      "execution_count": 5,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -220,7 +220,7 @@
         "id": "FpOxtMHTcIpq",
         "outputId": "d6536628-ccde-4e5c-faac-c56cddfe6b32"
       },
-      "execution_count": 4,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -322,7 +322,7 @@
         "id": "Vm3_bXXici_P",
         "outputId": "be4e9b82-626c-4b73-c292-56e51a1b33d2"
       },
-      "execution_count": 8,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -362,69 +362,6 @@
     {
       "cell_type": "markdown",
       "source": [
-        "Problem - Count Vowels in Words"
-      ],
-      "metadata": {
-        "id": "7bZ1KZK-dwOb"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "def count_vowels(text):\n",
-        "    \"\"\"\n",
-        "    Counts the number of vowels (a, e, i, o, u) in a given string or list of words.\n",
-        "    Returns the total count and a dictionary containing the count of each vowel.\n",
-        "    \"\"\"\n",
-        "    vowels = \"aeiouAEIOU\"\n",
-        "    vowel_counts = {v: 0 for v in \"aeiou\"}\n",
-        "    total_count = 0\n",
-        "\n",
-        "    for char in text:\n",
-        "        if char in vowels:\n",
-        "            vowel_counts[char.lower()] += 1\n",
-        "            total_count += 1\n",
-        "\n",
-        "    return total_count, vowel_counts\n",
-        "\n",
-        "# Sample text\n",
-        "sample_words = \"Google Colab Notebook\"\n",
-        "total, individual_counts = count_vowels(sample_words)\n",
-        "\n",
-        "print(f\"Text: \\\"{sample_words}\\\"\")\n",
-        "print(f\"Total Vowels: {total}\")\n",
-        "print(\"Vowel breakdown:\")\n",
-        "for vowel, count in individual_counts.items():\n",
-        "    print(f\"  {vowel}: {count}\")"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "YRKIlyvYd2Np",
-        "outputId": "ea94cb0e-ae8f-445b-baee-708e1d3a1b83"
-      },
-      "execution_count": 10,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Text: \"Google Colab Notebook\"\n",
-            "Total Vowels: 9\n",
-            "Vowel breakdown:\n",
-            "  a: 1\n",
-            "  e: 2\n",
-            "  i: 0\n",
-            "  o: 6\n",
-            "  u: 0\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
         "Problem 4 - Count vowels in words"
       ],
       "metadata": {
@@ -441,7 +378,7 @@
         "id": "cbObkJ_WecBk",
         "outputId": "379bb4a0-3012-4c46-c233-b0a06ca250c3"
       },
-      "execution_count": 11,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -464,6 +401,84 @@
           ]
         }
       ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Problem 5- Error or divisible by 5"
+      ],
+      "metadata": {
+        "id": "eXQ5BAdJNzvR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def check_divisibility_by_5(value):\n",
+        "    \"\"\"\n",
+        "    Checks if a value is divisible by 5.\n",
+        "    Raises ValueError if the input is not a valid integer or float.\n",
+        "    \"\"\"\n",
+        "    try:\n",
+        "        # Ensure numeric type conversion\n",
+        "        num = float(value)\n",
+        "        if num % 5 == 0:\n",
+        "            return f\"{value} is divisible by 5.\"\n",
+        "        else:\n",
+        "            return f\"{value} is NOT divisible by 5.\"\n",
+        "    except (ValueError, TypeError):\n",
+        "        raise ValueError(f\"Error: '{value}' is not a valid number.\")\n",
+        "\n",
+        "# Test scenarios\n",
+        "test_cases = [25, 13, \"50\", \"hello\", 12.5, [1, 2]]\n",
+        "\n",
+        "for case in test_cases:\n",
+        "    try:\n",
+        "        result = check_divisibility_by_5(case)\n",
+        "        print(result)\n",
+        "    except ValueError as e:\n",
+        "        print(e)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mmCkUooROY5p",
+        "outputId": "59e919e2-9f9f-414f-cb65-2a2d3a0bb1c2"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "25 is divisible by 5.\n",
+            "13 is NOT divisible by 5.\n",
+            "50 is divisible by 5.\n",
+            "Error: 'hello' is not a valid number.\n",
+            "12.5 is NOT divisible by 5.\n",
+            "Error: '[1, 2]' is not a valid number.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Problem 6-"
+      ],
+      "metadata": {
+        "id": "IQCcHSRlYqxg"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "OExldtAhOd1g"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
